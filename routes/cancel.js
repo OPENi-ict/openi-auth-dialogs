@@ -18,7 +18,7 @@ module.exports = function (req, res, next) {
 
    //proceed only if validated
    if (validated) {
-      req.session.accept = false;
+      //req.session.accept = false;
 
       var linkg = req.session.redURL + "?OUST=" + req.session.token + "?ERROR=error_permissions";
       res.send(linkg);

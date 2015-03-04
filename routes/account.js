@@ -79,7 +79,7 @@ module.exports = function (req, res, next) {
                // redirect to redirectURI only if there is no error
                console.log(datat2);
 
-               if ( comparePermissions(datat2, req.session.appPermJson) ) {
+               if ( comparePermissions(datat2, req.session.appPerms) ) {
                   var rdl = req.query.redirectURL + '?OUST=' + req.session.token;
                   res.redirect(rdl);
                } else {
