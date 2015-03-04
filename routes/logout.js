@@ -1,4 +1,5 @@
 
+var jwt2       = require('jwt-simple');
 var seckeyenc = 'oMF81IOFsZ0bvzSdcBVr';
 
 module.exports = function (req, res, next) {
@@ -9,7 +10,7 @@ module.exports = function (req, res, next) {
    var validated = false;
 
 
-   var tok = jwt.decode(req.session.authtoken, seckeyenc);
+   var tok = jwt2.decode(req.session.authtoken, seckeyenc);
 
    if (tok.hasOwnProperty("ip")) {
       if (tok.ip == req.connection.remoteAddress) {
