@@ -1,6 +1,10 @@
 
 var jwt        = require('jwt-simple');
+<<<<<<< HEAD
 var postScript = require('./postScript')
+=======
+var postScript = require('./postScript');
+>>>>>>> dev_demo2
 var login      = require('./login');
 var seckeyenc  = 'oMF81IOFsZ0bvzSdcBVr';
 

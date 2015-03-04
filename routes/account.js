@@ -6,7 +6,11 @@ var seckeyenc  = 'oMF81IOFsZ0bvzSdcBVr';
 
 var extractPermissions = function(req){
 
+<<<<<<< HEAD
    var b64   = req.query.appPerms
+=======
+   var b64   = req.query.appPerms;
+>>>>>>> dev_demo2
 
    if (undefined === b64){
       return {}
@@ -15,7 +19,34 @@ var extractPermissions = function(req){
    var perms = new Buffer(b64, 'base64');
 
    return perms.toString('utf-8')
+<<<<<<< HEAD
 }
+=======
+};
+
+var  comparePermissions = function(totalperms, appperms) {
+
+   var same =true;
+   var bigstring = JSON.stringify(totalperms);
+   var smallstring = '';
+
+   console.log(bigstring);
+   console.log(JSON.stringify(appperms[0]));
+   for (var key in appperms) {
+
+      console.log(appperms[key]);
+
+      smallstring = JSON.stringify(appperms[key]);
+      console.log(smallstring);
+      if (bigstring.indexOf(smallstring)== -1) {
+         same = false;
+         break;
+      }
+   }
+   return same;
+
+};
+>>>>>>> dev_demo2
 
 
 /*================*/
@@ -49,6 +80,7 @@ module.exports = function (req, res, next) {
          // redirect to redirectURI only if there is no error
          if (typeof datat['@id'] != 'undefined') {
 
+<<<<<<< HEAD
             if (req.session.accept) {
                var rdl = req.query.redirectURL + '?OUST=' + req.session.token;
                res.redirect(rdl);
@@ -57,6 +89,26 @@ module.exports = function (req, res, next) {
                res.redirect('/auth/permissions');
 
             }
+=======
+            path = "/api/v1/permissions";
+
+            postScript("GET", {}, path, headi, function (datat2) {
+               //success: send url so that client redirects
+               // redirect to redirectURI only if there is no error
+               console.log(datat2);
+
+               if ( comparePermissions(datat2, req.session.appPerms) ) {
+                  var rdl = req.query.redirectURL + '?OUST=' + req.session.token;
+                  res.redirect(rdl);
+               } else {
+                  res.redirect('/permsDenied')
+               }
+            }, function () {
+               res.status(500).send('OPENi Internal error: checking accepted permissions  failed');
+            });
+            
+            
+>>>>>>> dev_demo2
          } else {
             res.render("openi_account")
          }

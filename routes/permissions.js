@@ -55,13 +55,19 @@ module.exports = function (req, res, next) {
    //else return to redirect.
 
 
+<<<<<<< HEAD
    var newPerms = req.session.appPerms
 
    console.log("newPerms", newPerms)
+=======
+   var testAppPermJson = req.session.appPermJson;
+
+>>>>>>> dev_demo2
 
    //prepare html string based on manifest
 
    var app_perms = '';
+<<<<<<< HEAD
    var showjson, names = {};
 
 
@@ -81,3 +87,49 @@ module.exports = function (req, res, next) {
 
 
 }
+=======
+
+   var showjson = {};
+
+
+   getTypes(0, function (names) {
+
+      //console.log('Got');
+      //console.log(names);
+
+      testAppPermJson.forEach(function (obj) {
+
+         console.log(obj.id);
+
+         var idaki = names[obj.ref];
+
+         if (typeof showjson[idaki] == 'undefined') {
+            showjson[idaki] = [];
+            showjson[idaki].push(obj.access_type);
+         } else {
+            showjson[idaki].push(obj.access_type);
+         }
+      });
+
+
+
+      for (var key in showjson) {
+
+         app_perms += ('<div class="contA">' +
+         '<div style="font-weight: bold">' + key + '</div>' +
+         '<div>Permission Types: ' + showjson[key].toString().replace(/,/g,', ') + '</div>' +
+         '</div>');
+
+      }
+
+
+      //res.locals.session = req.session;
+      //send permissions page with permissions
+      res.render('app_perm.ejs', {app_perms: app_perms})
+
+   });
+
+
+
+};
+>>>>>>> dev_demo2
