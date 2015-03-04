@@ -2,7 +2,7 @@
  * Created by sspatharioti on 2/25/2015.
  */
 
-
+var jwt = require('jwt-simple');
 
 var seckeyenc = 'oMF81IOFsZ0bvzSdcBVr';
 
