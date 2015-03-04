@@ -18,11 +18,7 @@
     "connect-redis": "",
     "redis": "",
     "jsonwebtoken":"",
-<<<<<<< HEAD
     "deep-equal"  : "",
     "m2node"      : "OPENi-ict/m2node"
-=======
-    "m2node": "OPENi-ict/m2node"
->>>>>>> dev_demo2
   }
 }

@@ -6,11 +6,8 @@ var seckeyenc  = 'oMF81IOFsZ0bvzSdcBVr';
 
 var extractPermissions = function(req){
 
-<<<<<<< HEAD
-   var b64   = req.query.appPerms
-=======
+
    var b64   = req.query.appPerms;
->>>>>>> dev_demo2
 
    if (undefined === b64){
       return {}
@@ -19,9 +16,7 @@ var extractPermissions = function(req){
    var perms = new Buffer(b64, 'base64');
 
    return perms.toString('utf-8')
-<<<<<<< HEAD
-}
-=======
+
 };
 
 var  comparePermissions = function(totalperms, appperms) {
@@ -46,7 +41,6 @@ var  comparePermissions = function(totalperms, appperms) {
    return same;
 
 };
->>>>>>> dev_demo2
 
 
 /*================*/
@@ -80,16 +74,6 @@ module.exports = function (req, res, next) {
          // redirect to redirectURI only if there is no error
          if (typeof datat['@id'] != 'undefined') {
 
-<<<<<<< HEAD
-            if (req.session.accept) {
-               var rdl = req.query.redirectURL + '?OUST=' + req.session.token;
-               res.redirect(rdl);
-            } else {
-               var linkg = req.session.redURL + "?OUST=" + req.session.token + "?ERROR=error_permissions";
-               res.redirect('/auth/permissions');
-
-            }
-=======
             path = "/api/v1/permissions";
 
             postScript("GET", {}, path, headi, function (datat2) {
@@ -106,9 +90,6 @@ module.exports = function (req, res, next) {
             }, function () {
                res.status(500).send('OPENi Internal error: checking accepted permissions  failed');
             });
-            
-            
->>>>>>> dev_demo2
          } else {
             res.render("openi_account")
          }

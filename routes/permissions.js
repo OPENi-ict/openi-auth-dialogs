@@ -55,39 +55,12 @@ module.exports = function (req, res, next) {
    //else return to redirect.
 
 
-<<<<<<< HEAD
-   var newPerms = req.session.appPerms
-
-   console.log("newPerms", newPerms)
-=======
    var testAppPermJson = req.session.appPermJson;
 
->>>>>>> dev_demo2
 
    //prepare html string based on manifest
 
    var app_perms = '';
-<<<<<<< HEAD
-   var showjson, names = {};
-
-
-   //for (var key in newPerms) {
-   //
-   //   app_perms += ('<div class="contA">' +
-   //   '<div style="font-weight: bold">' + key + '</div>' +
-   //   '<div>Permission Types: ' + showjson[key].toString().replace(/,/g,', ') + '</div>' +
-   //   '</div>');
-   //
-   //}
-
-   //res.locals.session = req.session;
-   //send permissions page with permissions
-   res.render('app_perm.ejs', {app_perms: newPerms})
-
-
-
-}
-=======
 
    var showjson = {};
 
@@ -129,7 +102,4 @@ module.exports = function (req, res, next) {
 
    });
 
-
-
 };
->>>>>>> dev_demo2
